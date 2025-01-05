@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Samuel</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link href=”./output.css” rel=”stylesheet”>
+        
+   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+
+   <!-- AOS -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+        body {
+            background: linear-gradient(to right, #283cbb, #8e0e00); /* Example Gradient */
+            overflow: hidden; /* Prevent scrollbars during animation */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: scroll;
+        }
+
+        .background-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Behind the content */
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            pointer-events: none; /* Allow clicks through */
+        }
+
+        .form-container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            .form-content{
+                flex: 1;
+                margin-left: 2rem;
+            }
+            .image-container{
+                flex: 1;
+                padding: 2em;
+            }
+        }
+</style>
+<body  class="bg-gradient-to-r from-blue-900 to-red-900">
+
+    <div class="background-circles"></div>
+
+    <div class="form-container bg-slate-800 p-8 rounded-lg shadow-lg max-w-4xl w-full relative overflow-hidden">
+        <div class="image-container py-4">
+            <img id="contact-image" src="cd54570f-9676-4f7f-8d1e-1726c0b19803.jpg" alt="Contact Image" class="rounded-lg shadow-md max-w-full my-4 h-3/4 object-cover">
+        </div>
+        <div class="form-content">
+            <h2 class="text-5xl font-extrabold mt-6 mb-2 text-white text-center md:text-left">Contact Me</h2>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-400 font-bold mb-2">Name</label>
+                    <input type="text" id="name" class="border border-indigo-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent" placeholder="Your Name">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-400 font-bold mb-2">Email</label>
+                    <input type="email" id="email" class="border border-blue-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent" placeholder="Your Email">
+                </div>
+                <div class="mb-4">
+                    <label for="subject" class="block text-gray-400 font-bold mb-2">Subject</label>
+                    <input type="text" id="subject" class="border border-purple-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent" placeholder="Subject">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-400 font-bold mb-2">Message</label>
+                    <textarea id="message" rows="4" class="border border-pink-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-pink-500 bg-transparent" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="w-full py-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white transition duration-300">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.6/ScrollTrigger.min.js" integrity="sha512-+LXqbM6YLduaaxq6kNcjMsQgZQUTdZp7FTaArWYFt1nxyFKlQSMdIF/WQ/VgsReERwRD8w/9H9cahFx25UDd+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+// Background Circles
+const numCircles = 40; // Number of circles
+const bgCircles = document.querySelector('.background-circles');
+
+for (let i = 0; i < numCircles; i++) {
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+
+    const size = gsap.utils.random(100, 300);
+    gsap.set(circle, {
+        x: gsap.utils.random(0, window.innerWidth),
+        y: gsap.utils.random(0, window.innerHeight),
+        width: size,
+        height: size,
+        opacity: gsap.utils.random(0.2, 0.6),
+        scale: 0,
+    });
+    bgCircles.appendChild(circle);
+
+    gsap.to(circle, {
+        duration: gsap.utils.random(4, 8),
+        x: "+=" + gsap.utils.random(-200, 200),
+        y: "+=" + gsap.utils.random(-200, 200),
+        rotation: 360,
+        scale: 1,
+        opacity: 0,
+        ease: "none",
+        repeat: -1,
+        yoyo: true,
+    });
+}
+
+gsap.from(".bg-white", {
+    duration: 1,
+    opacity: 0,
+    y: 50,
+    ease: "power2.out"
+})
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+
+for (let i = 0; i < numCircles; i++) {
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+
+    const size = gsap.utils.random(50, 200);
+    gsap.set(circle, {
+        x: gsap.utils.random(0, window.innerWidth),
+        y: gsap.utils.random(0, window.innerHeight),
+        width: size,
+        height: size,
+        opacity: gsap.utils.random(0.2, 0.6),
+        scale: 0,
+    });
+    bgCircles.appendChild(circle);
+
+    gsap.to(circle, {
+        duration: gsap.utils.random(4, 8),
+        x: "+=" + gsap.utils.random(-200, 200),
+        y: "+=" + gsap.utils.random(-200, 200),
+        rotation: 360,
+        scale: 1,
+        opacity: 0,
+        ease: "none",
+        repeat: -1,
+        yoyo: true,
+    });
+}
+
+gsap.from(".form-container", {
+    duration: 1,
+    opacity: 0,
+    y: 50,
+    ease: "power2.out"
+})
+
+const contactImage = document.getElementById('contact-image');
+const form = document.getElementById('contactForm');
+
+form.addEventListener('input', () => {
+    gsap.to(contactImage, {
+        duration: 0.3,
+        x: gsap.utils.random(-20, 20),
+        y: gsap.utils.random(-20, 20),
+        rotation: gsap.utils.random(-10, 10),
+        ease: "power1.out",
+    });
+});
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent form submission
+    gsap.to(contactImage, {
+        duration: 0.5,
+        opacity: 0,
+        scale: 0.5,
+        y: -50,
+        ease: "power2.inOut",
+        onComplete: () => {
+            contactImage.src = "https://source.unsplash.com/random/400x400/?success"; // Change image
+            gsap.fromTo(contactImage, { opacity: 0, scale: 1.5, y: 50 }, { duration: 0.5, opacity: 1, scale: 1, y: 0, ease: "power2.out" });
+            form.reset();
+        }
+    });
+});
+
+
+</script>
+</script>
+</body>
+</html>

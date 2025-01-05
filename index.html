@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Samuel</title>
+    <link rel="stylesheet" href="index.css">
+    <link href=”./output.css” rel=”stylesheet”>
+        
+   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+
+   <!-- AOS -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/ScrollTrigger.min.js"></script> -->
+
+</head>
+<style>
+  body{
+    scroll-behavior: smooth;
+  }
+  .menubar{
+    position: absolute;
+    top: -100vh;
+  }
+  .menubar:target{
+    display: block;
+    background: rgb(0,0,0,.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+     overflow: scroll;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     backdrop-filter: blur(10px);
+  }
+  .custom-shape-divider-top-1736010058 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1736010058 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 55px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1736010058 .shape-fill {
+    fill: snow;
+}
+.circular-progress {
+  transform-origin: center;
+}
+
+.circular-fg {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+</style>
+<body>
+
+
+ <nav class="flex justify-around h-32 py-4 items-end w-full bg-pink-100 backdrop-blur-lg">
+    <h3 class="font-bold text-3xl text-slate-600 font-playwrite ">WS</h3>
+
+    <div class="lg:flex items-center gap-10 justify-center hidden">
+        <a href="/" title="Home" class="text-gray-700 font-bold text-lg">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+              </svg> -->
+              Home
+        </a>
+
+        <a href="#about" title="About" class="text-gray-700 font-bold text-lg">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-book" viewBox="0 0 16 16">
+                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+              </svg> -->
+              About
+        </a>
+
+        <a href="#services" class="text-gray-700 font-bold text-lg">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+              </svg> -->
+              Services 
+        </a>
+
+        <a href="#social" class="text-gray-700 font-bold text-lg">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+              <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+            </svg> -->
+          Contact
+      </a>
+    </div>
+
+    <div  id="menu" class="lg:hidden">
+        <a href="#menubar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </a>
+    </div>
+ </nav>
+
+ 
+ <section class="flex flex-col w-full ">
+
+    <!-- FLEX BOX 1 -->
+    <div class="flex-1 flex py-20 flex-col items-center justify-center">
+
+       <h1 id="a" class="text-4xl font-bold text-slate-400 text-center">I am Wisdom Samuel,</h1>
+       <h3 id="b" class="text-4xl font-bold bg-gradient-to-r from-pink-800 text-center to-indigo-500 inline-block text-transparent bg-clip-text">A MERN FULL STACK DEVELOPER</h3>
+       <div id="c" class="flex justify-center flex-wrap mt-6 gap-1">
+         <img class="p" src="https://skillicons.dev/icons?i=mongodb" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=react" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=express" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=nodejs" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=tailwind" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=mui" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=css" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=html" alt="" srcset="">
+         <img src="https://skillicons.dev/icons?i=js" alt="" srcset="">
+       </div>
+    </div>
+
+    <!-- FLEX BOX 2 -->
+    <div class="flex-1 m-auto">
+        <img class="w-full h-screen object-cover" src="COT_8448.jpg" alt="" srcset="">
+    </div>
+
+ </section>
+
+<!-- ABOUT -->
+ <section class="h-fit w-screen bg-pink-100 py-2" id="about">
+    <h1 data-aos="zoom-in" class="font-extrabold text-4xl text-center">About Me</h1>
+    
+    <div class=" flex flex-col lg:flex-row w-full py-10">
+
+       <div class="font-semibold px-4 flex-1 flex-col flex justify-center items-center text-gray-600 line-20 font-mono">
+          
+            <div data-aos="fade-down" class="text-center"> 
+         
+             I am Wisdom Samuel , a passionate Full Stack Developer , Math Geek and Professional Pianist / Music Producer myself .
+             I have taught in several schools interstate and with several professional organizations as a MUSIC PRODUCER and FULL STACK DEVELOPER.
+             My specialized DAWS (DIGITAL AUDIO WORKSTATION) for music production includes LOGIC PRO , FL STUDIO, STUDIO ONE & CUBASE likewise my specialized technologies
+             for FULL STACK DEVELOPMENT (WEB AND APP DEVELOPMENT) includes MONGODB, EXPRESS JS , REACT ,NODE JS , TAILWIND ,MUI ,HTML ,CSS3 , JAVASCRIPT , FIREBASE , REACT NATIVE ,etc.
+
+             I own a BRAND called KNOWURCRAFT which inspires individuals with our skills on becoming better at (TECH [ WEB & APP DEVELOPMENT ], MUSIC [PRODUCER ,PIANIST ] and MATH GEEK) .
+             I love passionate individuals who are ready to shape their lives and break out just as the < WORLD NEEDS THEM > ... 
+
+            </div>
+
+          <section id="social" class="py-4 bg-transparent">
+      <div class="container mx-auto px-4 text-center">
+
+        <div class="flex justify-center space-x-6">
+    
+          <a href="https://github.com/Wisdom-Samuel7" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition duration-300">
+            <i class="fab fa-github fa-2x"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+    
+          <a href="https://www.linkedin.com/in/knowurcraft-wisdom-samuel-775832239/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 transition duration-300">
+            <i class="fab fa-linkedin fa-2x"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+    
+          <a href="https://web.facebook.com/profile.php?id=100006655488943" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-700 transition duration-300">
+            <i class="fab fa-facebook fa-2x"></i>
+            <span class="sr-only">Facebook</span>
+          </a>
+    
+          <a href="https://wa.me/09129683677" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-green-600 transition duration-300">
+            <i class="fab fa-whatsapp fa-2x"></i>
+            <span class="sr-only">WhatsApp</span>
+          </a>
+    
+        </div>
+      </div>
+    </section>
+          
+        </div>
+
+       <div class="flex-1 py-12 m-auto flex justify-center items-center">
+           <img data-aos="zoom-in" class="w-2/3 h-80 object-cover" src="COT_8201.jpg" alt="" srcset="">
+       </div>
+
+    </div>
+
+ </section>
+
+ <!-- MENUBAR -->
+ <section id="menubar" class="menubar flex flex-col gap-4 relative">
+    <a href="/" class="text-white font-extrabold text-2xl m-4 absolute right-0 top-0 ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+      </svg>
+    </a>
+
+
+    <a id="a" href="/" class=" font-extrabold text-2xl text-gray-200">Home</a>
+    <a id="b" href="#about" class=" font-extrabold text-2xl text-gray-200">About</a>
+    <a id="a" href="#services" class=" font-extrabold text-2xl text-gray-200">Services</a>
+    <a id="c" href="#social" class=" font-extrabold text-2xl text-gray-200">Contact</a>
+ </section>
+
+
+ <!-- <section class="h-screen bg-black relative">
+  <div class="custom-shape-divider-top-1736010058">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+    </svg>
+  </div>
+  
+
+ </section> -->
+
+
+
+<!-- SERVICES -->
+
+    <section id="services" class="container mx-auto py-16">
+        <h2 class="text-3xl font-bold text-center mb-10">My Services</h2>
+
+          <div data-aos="fade-down" class="grid grid-cols-1 md:grid-cols-3 gap-8 hover:scale-x-50">
+            <div class="bg-gray-100 p-8 rounded-lg shadow-md">
+                <img src="52fdf7f6-f9d8-4358-974c-5c27295b6832.jpg" alt="Full Stack Development" class="mx-auto mb-4 w-44">
+                <h3 class="text-xl font-semibold mb-2">Full Stack Development</h3>
+                <p>I specialize in building robust and user-friendly web applications from front-end to back-end.</p>
+            </div>
+
+            <div data-aos="fade-right" class="bg-gray-100 p-8 rounded-lg shadow-md">
+                <img src="3e7b2ed4-80c5-4e4c-8f31-0380187de28a.jpg" alt="Math Development" class="mx-auto mb-4 w-44">
+                <h3 class="text-xl font-semibold mb-2">Math Development</h3>
+                <p>I provide tutoring and assistance in various mathematical concepts, from basic algebra to advanced calculus.</p>
+            </div>
+
+            <div  data-aos="fade-left" class="bg-gray-100 p-8 rounded-lg shadow-md">
+                <img src="cd54570f-9676-4f7f-8d1e-1726c0b19803.jpg" alt="Music Production" class="mx-auto mb-4 w-44">
+                <h3 class="text-xl font-semibold mb-2">Music Production</h3>
+                <p>I offer music production services, including recording, mixing, mastering, and sound design.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+    <!-- EXPERIENCE -->
+
+    <section id="experience" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Experience</h2>
+    
+        <div class="relative flex flex-col md:flex-row">
+          <div class="md:w-1/3 md:pr-12 mb-8 md:mb-0">
+            <img data-aos="zoom-in" id="tabimg" src="95b2212f-8816-4a32-a57b-3d7e1138b21b.jpg" alt="WS" class="rounded-full shadow-md w-full h-auto object-cover">
+          </div>
+    
+          <div class="md:w-2/3">
+            <div id="experience-timeline" class="relative">
+              <div class="absolute w-1 h-full bg-gray-300 left-0 md:left-1/2 -ml-0.5 md:-ml-0.5"></div>
+    
+              <div class="timeline-items">
+    
+                <div class="timeline-item mb-16" data-year="2023">
+                  <div class="flex flex-col md:flex-row items-start md:items-center">
+                    <div class="timeline-icon bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 md:mr-8 z-10">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content bg-white rounded-lg shadow-md p-6 relative z-10 w-full md:w-auto">
+                      <div class="md:absolute -left-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <div class="w-4 h-4 rounded-full bg-indigo-500"></div>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2 text-gray-800">Full Stack Developer</h3>
+                      <p class="text-gray-600 mb-2">RGMCA.</p>
+                      <p class="text-gray-500 text-sm">June 2023 - June 2024</p>
+                      <ul class="list-disc pl-6 mt-2 text-gray-600">
+                        <li>Led full stack development for key projects using MONGODB, EXPRESS JS, REACT JS , NODE JS ,TAILWIND , HTML ,CSS3 , EJS, etc</li>
+                        <li>Managed their database and serveer side</li>
+                        <li>Implemented performance optimizations, resulting in a 30% increase in page load speed.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="timeline-item mb-16" data-year="2020">
+                  <div class="flex flex-col md:flex-row items-start md:items-center">
+                    <div class="timeline-icon bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 md:mr-8 z-10">
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content bg-white rounded-lg shadow-md p-6 relative z-10 w-full md:w-auto">
+                      <div class="md:absolute -left-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2 text-gray-800">Sound Engineer / Music Producer </h3>
+                      <p class="text-gray-600 mb-2">EM NETWORKS MEDIA</p>
+                      <p class="text-gray-500 text-sm">JULY 2020 - Present</p>
+                      <ul class="list-disc pl-6 mt-2 text-gray-600">
+                        <li>Developed and maintained professional sound system using DAWS scuch as LOGIC PRO, FL STUDIO, CUBASE ,etc.</li>
+                        <li>Collaborated with cross-functional teams to deliver high-quality music.</li>
+                        <li>Improved performance by 70% through sound optimization.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="timeline-item mb-16" data-year="2018">
+                  <div class="flex flex-col md:flex-row items-start md:items-center">
+                    <div class="timeline-icon bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 md:mr-8 z-10">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content bg-white rounded-lg shadow-md p-6 relative z-10 w-full md:w-auto">
+                      <div class="md:absolute -left-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2 text-gray-800">Schools Interstate</h3>
+                      <p class="text-gray-600 mb-2">MATH || TECH || MUSIC TUTOR</p>
+                      <p class="text-gray-500 text-sm"> 2020 - PRESENT</p>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="timeline-item mb-16" data-year="2016">
+                  <div class="flex flex-col md:flex-row items-start md:items-center">
+                    <div class="timeline-icon bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 md:mr-8 z-10">
+                      <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="timeline-content bg-white rounded-lg shadow-md p-6 relative z-10 w-full md:w-auto">
+                      <div class="md:absolute -left-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <div class="w-4 h-4 rounded-full bg-yellow-500"></div>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2 text-gray-800">Certified in Web Development</h3>
+                      <p class="text-gray-600 mb-2">LGA</p>
+                      <p class="text-gray-500 text-sm">2021</p>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SOCIALS -->
+    <section id="social" class="py-12 bg-gray-200">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-8 text-gray-800">Connect With Me</h2>
+        <div class="flex justify-center space-x-6">
+    
+          <a href="https://github.com/Wisdom-Samuel7" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition duration-300">
+            <i class="fab fa-github fa-2x"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+    
+          <a href="https://www.linkedin.com/in/knowurcraft-wisdom-samuel-775832239/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 transition duration-300">
+            <i class="fab fa-linkedin fa-2x"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+    
+          <a href="https://web.facebook.com/profile.php?id=100006655488943" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-700 transition duration-300">
+            <i class="fab fa-facebook fa-2x"></i>
+            <span class="sr-only">Facebook</span>
+          </a>
+    
+          <a href="https://wa.me/09129683677" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-green-600 transition duration-300">
+            <i class="fab fa-whatsapp fa-2x"></i>
+            <span class="sr-only">WhatsApp</span>
+          </a>
+    
+        </div>
+      </div>
+    </section>
+
+
+<!-- STATS -->
+
+    <section id="stats" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="relative inline-flex items-center justify-center h-24 w-24 rounded-full bg-blue-100 mb-4">
+              <svg class="circular-progress" width="96" height="96" viewBox="0 0 100 100">
+                <circle class="circular-bg" cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                <circle class="circular-fg" cx="50" cy="50" r="45" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="282.74" stroke-dashoffset="282.74" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <span class="absolute text-2xl font-bold text-gray-800 skill-percentage" data-percent="90">90%</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800">Web Development</h3>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="relative inline-flex items-center justify-center h-24 w-24 rounded-full bg-green-100 mb-4">
+              <svg class="circular-progress" width="96" height="96" viewBox="0 0 100 100">
+                <circle class="circular-bg" cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                <circle class="circular-fg" cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10" stroke-dasharray="282.74" stroke-dashoffset="282.74" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <span class="absolute text-2xl font-bold text-gray-800 skill-percentage" data-percent="75">75%</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800">Math and Sciences Development</h3>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="relative inline-flex items-center justify-center h-24 w-24 rounded-full bg-yellow-100 mb-4">
+              <svg class="circular-progress" width="96" height="96" viewBox="0 0 100 100">
+                <circle class="circular-bg" cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                <circle class="circular-fg" cx="50" cy="50" r="45" fill="none" stroke="#facc15" stroke-width="10" stroke-dasharray="282.74" stroke-dashoffset="282.74" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <span class="absolute text-2xl font-bold text-gray-800 skill-percentage" data-percent="80">80%</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800"> Music Production </h3>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="relative inline-flex items-center justify-center h-24 w-24 rounded-full bg-red-100 mb-4">
+              <svg class="circular-progress" width="96" height="96" viewBox="0 0 100 100">
+                <circle class="circular-bg" cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                <circle class="circular-fg" cx="50" cy="50" r="45" fill="none" stroke="#ef4444" stroke-width="10" stroke-dasharray="282.74" stroke-dashoffset="282.74" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <span class="absolute text-2xl font-bold text-gray-800 skill-percentage" data-percent="70">70%</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800">Project lead</h3>
+          </div>
+    
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <!-- HISTOGRAM
+
+    <section id="stats" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Web Development</h3>
+            <div class="relative h-24 bg-gray-200 rounded">
+              <div class="absolute bottom-0 left-0 bg-blue-500 rounded h-[90%] w-full transition-all duration-500 ease-out" style="width: 90%;" data-percentage="90"></div>
+            </div>
+            <p class="text-center mt-2 text-gray-600">90%</p>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">UI/UX Design</h3>
+            <div class="relative h-24 bg-gray-200 rounded">
+              <div class="absolute bottom-0 left-0 bg-green-500 rounded h-[75%] w-full transition-all duration-500 ease-out" style="width: 75%;" data-percentage="75"></div>
+            </div>
+            <p class="text-center mt-2 text-gray-600">75%</p>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Project Management</h3>
+            <div class="relative h-24 bg-gray-200 rounded">
+              <div class="absolute bottom-0 left-0 bg-yellow-500 rounded h-[80%] w-full transition-all duration-500 ease-out" style="width: 80%;" data-percentage="80"></div>
+            </div>
+            <p class="text-center mt-2 text-gray-600">80%</p>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Data Analysis</h3>
+            <div class="relative h-24 bg-gray-200 rounded">
+              <div class="absolute bottom-0 left-0 bg-red-500 rounded h-[60%] w-full transition-all duration-500 ease-out" style="width: 60%;" data-percentage="60"></div>
+            </div>
+            <p class="text-center mt-2 text-gray-600">60%</p>
+          </div>
+    
+        </div>
+      </div>
+    </section> -->
+
+
+    
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <p>&copy; <span id="currentYear"></span> Wisdom Samuel. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-6">
+            <a href="#" class="hover:text-gray-300 transition duration-300">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition duration-300">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition duration-300">
+                <i class="fab fa-twitter fa-lg"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition duration-300">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+ 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.6/ScrollTrigger.min.js" integrity="sha512-+LXqbM6YLduaaxq6kNcjMsQgZQUTdZp7FTaArWYFt1nxyFKlQSMdIF/WQ/VgsReERwRD8w/9H9cahFx25UDd+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script src="stats.js"></script>
+<script>
+ document.getElementById("currentYear").textContent = new Date().getFullYear();
+gsap.registerPlugin(ScrollTrigger);
+
+AOS.init(
+  {
+    duration:700
+  }
+);
+
+  gsap.from("#a,#b,#c",{
+      y:30,
+      opacity:0,
+      duration:.8,
+      stagger:.4
+  })
+
+
+    // Header animation on scroll
+    gsap.to("#header-title", {
+        scrollTrigger: {
+            trigger: "#header-title",
+            start: "top bottom", // Trigger when the top of the header hits the bottom of the viewport
+            end: "bottom top",
+            scrub: true, // Smooth animation based on scroll
+            // markers: true // Optional: Shows markers for debugging
+        },
+        opacity: 1,
+        y: 0,
+        ease: "power4.out",
+        duration: 1.5
+    });
+
+    // Full Stack Development section animation
+    gsap.to("#full-stack-title", {
+        scrollTrigger: {
+            trigger: "#full-stack",
+            start: "top 80%", // Trigger when the section reaches 80% of the viewport height
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out"
+    });
+
+    gsap.to("#full-stack-service", {
+        scrollTrigger: {
+            trigger: "#full-stack",
+            start: "top 60%",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out"
+    });
+
+    // Music Production section animation
+    gsap.to("#music-production-title", {
+        scrollTrigger: {
+            trigger: "#music-production",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out"
+    });
+
+    gsap.to("#music-production-service", {
+        scrollTrigger: {
+            trigger: "#music-production",
+            start: "top 60%",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out"
+    });
+
+    // Math Tutoring section animation
+    gsap.to("#math-tutoring-title", {
+        scrollTrigger: {
+            trigger: "#math-tutoring",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out"
+    });
+
+    gsap.to("#math-tutoring-service", {
+        scrollTrigger: {
+            trigger: "#math-tutoring",
+            start: "top 60%",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out"
+    });
+
+
+
+gsap.utils.toArray('.service').forEach(service => {
+    gsap.fromTo(service, { opacity: 0, y: 50 }, { 
+        opacity: 1, 
+        y: 0, 
+        scrollTrigger: {
+            trigger: service, 
+            start: "top 80%", 
+            end: "bottom 20%", 
+            scrub: true 
+        }
+    });
+});
+
+
+gsap.utils.toArray(".timeline-item").forEach(item => {
+    gsap.from(item, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 80%", // Adjust start position as needed
+        toggleActions: "play none none reverse",
+        markers: false, // Set to true for debugging
+      },
+    });
+  });
+
+   gsap.to("#tabimh", {
+      scrollTrigger: {
+        trigger: "#tabimg",
+        pin: true,   // pin the trigger element
+        start: "top 10%", // the top of the trigger element hits the top of the viewport
+        end: "+=500", // end after scrolling 500px beyond the start
+        scrub: 1, // smooth scrubbing, takes 1 second to "catch up"
+        markers: false,
+      }
+    })
+
+    gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".panel").forEach((panel, i) => {
+    ScrollTrigger.create({
+        trigger: panel,
+        start: "top top",
+        pin: true,
+        pinSpacing: false,
+        scrub: 1,
+        // markers: true, // For debugging
+    });
+});
+
+</script>
+</body>
+</html>
