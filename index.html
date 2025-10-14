@@ -95,7 +95,7 @@
   </style>
 
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
+  <script type="application/ld+json"> 
   {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -254,13 +254,28 @@
 <!-- CONTACT SECTION -->
 <section id="contact" class="py-20 px-6 md:px-20 bg-white">
   <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12 text-center">Contact Me</h2>
+  
   <form action="https://formspree.io/f/xblzyprr" method="POST" class="max-w-2xl mx-auto grid gap-6">
     <input name="name" type="text" placeholder="Your Name" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
     <input name="_replyto" type="email" placeholder="Your Email" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
     <textarea name="message" placeholder="Your Message" rows="6" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
-    <button type="submit" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-700 transition">Send Message</button>
+    <button type="submit" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-700 transition">
+      Send Message
+    </button>
   </form>
+
+  <!-- WhatsApp Contact -->
+  <div class="flex justify-center mt-10">
+    <a 
+      href="https://wa.me/2349129683677" 
+      target="_blank"
+      class="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg transition transform hover:scale-105">
+      <i class="bi bi-whatsapp text-2xl"></i>
+      <span>Chat on WhatsApp</span>
+    </a>
+  </div>
 </section>
+
 
 
 
@@ -360,6 +375,59 @@
     </div> -->
   </div>
 </section>
+
+
+
+<!-- ===== FOOTER SECTION ===== -->
+<footer class="bg-gradient-to-r from-indigo-700 via-indigo-800 to-indigo-900 text-gray-200 py-10 px-6 md:px-20">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    
+    <!-- BRAND / ABOUT -->
+    <div>
+      <h3 class="text-2xl font-extrabold text-white mb-2">KnowurCraft</h3>
+      <p class="text-sm text-gray-300 mb-4">🎧 Full Stack Developer & Music Producer<br>Crafting experiences through code and sound.</p>
+      <a href="/projects.html" class="inline-block bg-white text-indigo-700 font-semibold px-5 py-2 rounded-lg hover:bg-indigo-200 transition">
+        View My Projects
+      </a>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h4 class="text-xl font-semibold mb-3 text-white">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+        <li><a href="#about" class="hover:text-white transition">About</a></li>
+        <li><a href="#experience" class="hover:text-white transition">Experience</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="blogs.html" class="hover:text-white transition">Blog</a></li>
+        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL LINKS -->
+    <div>
+      <h4 class="text-xl font-semibold mb-3 text-white">Connect</h4>
+      <div class="flex space-x-4 text-2xl">
+        <a href="https://github.com/Wisdom-Samuel7" target="_blank" class="hover:text-white transition"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/wisdom-samuel" target="_blank" class="hover:text-white transition"><i class="bi bi-linkedin"></i></a>
+        <a href="https://instagram.com/knowurcraft" target="_blank" class="hover:text-white transition"><i class="bi bi-instagram"></i></a>
+        <a href="https://facebook.com/knowurcraft" target="_blank" class="hover:text-white transition"><i class="bi bi-facebook"></i></a>
+        <a href="https://youtube.com/@knowurcraft" target="_blank" class="hover:text-white transition"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="border-t border-indigo-600 mt-10 pt-4 text-center text-sm text-gray-400">
+    © <span id="year"></span> KnowurCraft. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- Year Script -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 
 
 <script>
